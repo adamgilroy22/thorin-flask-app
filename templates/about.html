@@ -29,7 +29,7 @@
                 </div>
 
             {% else %}
-            
+
             <div class="col-md-5">
                 <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
             </div>
@@ -43,7 +43,11 @@
             {% endif %}
         </div>
 
-        <hr class="featurette-divider">
+        {% if loop.index != loop.length %} <!-- If statement to stop hr displaying under last member -->
+
+            <hr class="featurette-divider">
+
+        {% endif %}
 
     {% endfor %}
 
