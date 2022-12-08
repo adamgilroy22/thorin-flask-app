@@ -15,15 +15,32 @@
     {% for member in company %}
 
         <div class="row featurette">
+
+            {% if loop.index % 2 !=0 %} <!-- If index divided by two isn't 0 (If it's an odd number) -->
+
+                <div class="col-md-7">
+                    <h3>{{ loop.index }}. {{ member.name }}</h3>
+                    <p>
+                        {{ member.description }}
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+                </div>
+
+            {% else %}
+            
+            <div class="col-md-5">
+                <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+            </div>
             <div class="col-md-7">
-                <h3>{{ member.name }}</h3>
+                <h3>{{ loop.index }}. {{ member.name }}</h3>
                 <p>
                     {{ member.description }}
                 </p>
             </div>
-            <div class="col-md-5">
-                <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
-            </div>
+            
+            {% endif %}
         </div>
 
         <hr class="featurette-divider">
